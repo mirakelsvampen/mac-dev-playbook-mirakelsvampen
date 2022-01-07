@@ -1,0 +1,103 @@
+---
+downloads: ~/.ansible-downloads/
+
+configure_dotfiles: false
+
+configure_terminal: true
+terminal_oh_my_posh_themes_path: /Users/kooijman/.posh
+terminal_default_profile_path: /Users/kooijman/Library/Application Support/iTerm2/DynamicProfiles
+
+configure_osx: false
+
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: false
+dockitems_remove:
+  - Launchpad
+  - TV
+  - Podcasts
+  - 'App Store'
+  - Photos
+  - Safari
+dockitems_persist: 
+  - name: "Bitwarden"
+    path: "/Applications/Bitwarden.app"
+    pos: 3
+  - name: "Firefox"
+    path: "/Applications/Firefox.app"
+    pos: 4
+  - name: "Messenger"
+    path: "/Applications/Messenger.app"
+    pos: 5
+  - name: "Postman"
+    path: "/Applications/Postman.app"
+    pos: 6
+  - name: "Notion"
+    path: "/Applications/Notion.app"
+    pos: 7
+  - name: "Spotify"
+    path: "/Applications/Spotify.app"
+    pos: 8
+  - name: "iTerm"
+    path: "/Applications/iTerm.app"
+    pos: 9
+
+configure_sudoers: false
+sudoers_custom_config: ''
+# Example:
+# sudoers_custom_config: |
+#   # Allow users in admin group to use sudo with no password.
+#   %admin ALL=(ALL) NOPASSWD: ALL
+
+dotfiles_repo: https://github.com/mirakelsvampen/dotfiles.git
+dotfiles_repo_accept_hostkey: true
+dotfiles_repo_local_destination: ~/Desktop/Development/dotfiles
+dotfiles_files:
+  - .zprofile
+
+homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  - docker
+  - go
+  - oh-my-posh
+  - virtualenv
+  - six
+  - nmap
+  - openssl
+  - wget
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - notion
+  - postman
+
+osx_script: "~/.osx --no-restart"
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+composer_packages: []
+# - name: drush
+#   state: present # present/absent, default: present
+#   version: "^8.1" # default: N/A
+gem_packages: []
+# - name: bundler
+#   state: present # present/absent/latest, default: present
+#   version: "~> 1.15.1" # default: N/A
+npm_packages: []
+# - name: webpack
+#   state: present # present/absent/latest, default: present
+#   version: "^2.6" # default: N/A
+pip_packages:
+  - name: requests
+    state: present # present/absent/latest, default: present
+    version: "2.27.1" # default: N/A
+  - name: markdown2
+    state: present # present/absent/latest, default: present
+    version: "2.4.2" # default: N/A
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks: []

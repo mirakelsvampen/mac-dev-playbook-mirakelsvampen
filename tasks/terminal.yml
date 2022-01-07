@@ -1,0 +1,20 @@
+---
+# Custom Terminal theme.
+- name: Make sure iTerm2 is installed
+  ansible.builtin.stat:
+    path: "/Applications/iTerm.app"
+  register: iterm_stat
+
+- name: Ensure iTerm2 profile is added
+  copy:
+    src: files/terminal/Profiles.json
+    dest: "{{ terminal_default_profile_path }}/Profiles.json"
+  changed_when: true
+  when: iterm_stat.stat.exists
+
+- name: Ensure oh-my-posh theme is installed
+  copy:
+    src: files/terminal/craver.omp.json
+    dest: "{{ terminal_oh_my_posh_themes_path }}/craver.omp.json"
+  changed_when: true
+  when: iterm_stat.stat.exists
